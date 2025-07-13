@@ -109,9 +109,9 @@ export default function Chat() {
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
               <Link href="/">
-                <Button variant="ghost" size="sm" className="mr-4">
+                <Button variant="ghost" size="sm" >
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Retour
+                
                 </Button>
               </Link>
               <div className="flex items-center">
@@ -119,24 +119,15 @@ export default function Chat() {
                 <h1 className="text-xl font-semibold text-gray-900">Assistant d'Orientation</h1>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-600">En ligne</span>
-            </div>
+       
           </div>
         </div>
       </header>
 
       {/* Chat Interface */}
       <main className="flex-1 flex flex-col max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 min-h-0">
-        <Card className="flex-1 flex flex-col min-h-0">
-          <CardHeader className="pb-4 flex-shrink-0">
-            <CardTitle className="text-lg">Conversation</CardTitle>
-          </CardHeader>
-
-          <CardContent className="flex-1 flex flex-col min-h-0 p-4">
-            {/* Messages Container */}
-            <div className="flex-1 overflow-y-auto mb-4 pr-2 space-y-4">
+        
+            <div className="flex-1 overflow-y-auto mb-4 pr-2 space-y-4 ">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`flex max-w-[85%] ${message.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
@@ -210,8 +201,7 @@ export default function Chat() {
                 </Button>
               </form>
             </div>
-          </CardContent>
-        </Card>
+         
       </main>
     </div>
   )
