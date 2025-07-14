@@ -10,7 +10,7 @@ import { ArrowLeft, Send, Bot, User } from "lucide-react"
 
 interface Message {
   id: string
-  role: "user" | "assistant"
+  role: "user" | "model"
   content: string
   timestamp: Date
 }
@@ -19,7 +19,7 @@ export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      role: "assistant",
+      role: "model",
       content:
         "Bonjour ! Je suis votre assistant d'orientation professionnelle. Je suis là pour vous aider à explorer vos options de carrière, discuter de vos compétences et vous guider dans vos choix professionnels. Comment puis-je vous aider aujourd'hui ?",
       timestamp: new Date(),
@@ -81,7 +81,7 @@ export default function Chat() {
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
-        role: "assistant",
+        role: "model",
         content: data.response,
         timestamp: new Date(),
       }
@@ -91,7 +91,7 @@ export default function Chat() {
       console.error("Erreur:", error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        role: "assistant",
+        role: "model",
         content: "Désolé, une erreur s'est produite. Veuillez réessayer.",
         timestamp: new Date(),
       }
@@ -127,9 +127,9 @@ export default function Chat() {
       {/* Chat Interface */}
       <main className="flex-1 flex flex-col max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-4 min-h-0">
         
-            <div className="flex-1 overflow-y-auto mb-4 pr-2 space-y-4 ">
+            <div className="flex-1 overflow-y-auto  mb-4 pr-2 space-y-4 ">
               {messages.map((message) => (
-                <div key={message.id} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div key={message.id} className={`flex  ${message.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`flex max-w-[85%] ${message.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
                     <div className={`flex-shrink-0 ${message.role === "user" ? "ml-3" : "mr-3"}`}>
                       <div
